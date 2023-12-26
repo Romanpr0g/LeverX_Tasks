@@ -110,7 +110,7 @@ h1 {
   flex-direction: column;
 }
 
-.banner_title {
+.banner__title {
   font-size: 52px;
   margin-bottom: 6px;
   line-height: 1.25;
@@ -125,8 +125,16 @@ h1 {
 }
 
 .banner__post-text {
+  font-weight: 300;
   font-size: 16px;
-  margin-top: 24px;
+  line-height: 0.4;
+  margin-top: 40px;
+}
+
+.banner__post-text a {
+  font-weight: 300;
+  font-size: inherit;
+  text-decoration: underline;
 }
 
 .header__banner-video {
@@ -159,27 +167,40 @@ h1 {
   color: #fff;
 }
 
+.blue-blue:hover {
+  background: #548fd8;
+}
+
 .btn-yellow {
   background-color: #f6bb43;
   border-color: #fff5ca;
   color: #fff;
 }
 
+.btn-yellow:hover {
+  background: #f4c568;
+}
+
 /*brands ----------------------------------------------*/
 
 .section__trusted-brands {
-  padding: 82px 0 112px;
+  padding: 82px 0 0;
+  text-align: center;
 }
 
-.section__trusted-brands:after {
+.trusted-brands__wrapper {
+  position: relative;
+  padding-bottom: 112px;
+}
+
+.trusted-brands__wrapper:before {
+  position: absolute;
   content: "";
-  display: block;
+  bottom: 0;
   height: 1px;
   background: #d2d2d2;
   width: 100%;
-  width: calc(100% - 32px);
-  max-width: 77rem;
-  margin: auto;
+  left: 0;
 }
 
 .brands__title {
@@ -205,10 +226,24 @@ h1 {
 .feature__title {
   margin-bottom: 12px;
   font-size: 26px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 38rem;
+  color: #6e6c6c;
 }
 
 .feature__subtitle {
   margin-bottom: 24px;
+  font-size: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 38rem;
+  color: #6e6c6c;
+}
+
+.feature__subtitle a {
+  color: #69c5e4;
+  font-weight: 600;
   font-size: 16px;
 }
 
@@ -241,10 +276,21 @@ h1 {
 .card__title {
   margin-bottom: 6px;
   font-size: 20px;
+  font-weight: 600;
+  color: #6e6c6c;
+  line-height: 1.25;
 }
 
 .card-info {
   font-size: 16px;
+  color: #6e6c6c;
+  line-height: 1.25;
+}
+
+.card-info a {
+  color: #69c5e4;
+  font-size: 16px;
+  line-height: 1.25;
 }
 
 .dinosaur__block {
@@ -428,6 +474,10 @@ label, a{ /*при наведении на стрелки или переклю�
   font-size: 19px;
 }
 
+.btn_get-started:hover {
+  background-color: #50e78f;
+}
+
 .ger-started__background {
   display: block;
   position: absolute;
@@ -584,7 +634,7 @@ label, a{ /*при наведении на стрелки или переклю�
   content: "•";
   color: #837c8d;
   margin: 0 8px;
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 /*sub-footer ----------------------------------------------*/
