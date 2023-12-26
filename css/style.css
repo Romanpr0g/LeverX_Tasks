@@ -44,13 +44,26 @@ h1 {
   height: 41px;
 }
 
+.header__menu {
+  display:none;
+  color: #3a3a3a;
+  font-size: 1.125rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+@media (max-width: 920px) {
+  .header__menu {
+    display: block;
+  }
+}
+
 .header-nav {
   display: flex;
   justify-content: end;
   text-transform: uppercase;
   color: #3a3a3a;
   margin-right: 150px;
-  
 }
 
 .nav__list {
@@ -62,6 +75,10 @@ h1 {
   display: block;
   padding: 30px 0;
   font-size: 17px;
+}
+
+.nav__link:hover {
+  color: rgb(241, 68, 68);
 }
 
 .nav_link_list {
@@ -85,16 +102,33 @@ h1 {
   color: #fff;
   text-align: center;
   font-weight: 600;
+  transition: .5s ease-in-out;
+
 }
 
 .nav__sign:hover {
   background: #548fd8;
+  border-top-left-radius: 100% 20px;
+  border-bottom-right-radius: 100% 20px;
 }
 
-.cont {
+.nav__sign:active {
+  background: #031831;
+}
+
+.navigation__container {
   display: flex;
   justify-content: space-between;
   /* gap: 208px; */
+}
+
+@media (max-width: 920px) {
+  .header-nav {
+    display: none;
+  }
+  .nav__sign {
+    display:none;
+  }
 }
 /* header-banner---------------------------------------*/
 
@@ -165,6 +199,7 @@ h1 {
   background-color: #2685c6;
   border-color: #99caec;
   color: #fff;
+  transition-duration: .3s;
 }
 
 .blue-blue:hover {
@@ -175,10 +210,39 @@ h1 {
   background-color: #f6bb43;
   border-color: #fff5ca;
   color: #fff;
+  transition-duration: .3s;
 }
 
 .btn-yellow:hover {
   background: #f4c568;
+}
+
+@media (max-width: 920px) {
+  .header__banner {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .btn__list {
+    margin: 40px 0 40px;
+    justify-content: center;
+  }
+
+  .banner__title {
+    max-width: 38rem;
+    margin: 0 auto 0.375rem;
+  }
+
+  .banner__subtitle {
+    margin: auto;
+    max-width: 38rem;
+  }
+
+  .banner__post-text {
+    margin: auto;
+    max-width: 38rem;
+  }
 }
 
 /*brands ----------------------------------------------*/
@@ -204,9 +268,14 @@ h1 {
 }
 
 .brands__title {
+  display: block;
   text-align: center;
   margin-bottom: 22px;
   font-size: 32px;
+}
+
+.brands__image {
+  width: 100%;
 }
 
 /*features ----------------------------------------------*/
@@ -302,6 +371,21 @@ h1 {
   height: 288px;
 }
 
+@media (max-width: 920px) {
+  .feature__wrapper {
+    padding: 0 16px;
+  }
+
+  .section__features {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .feature__list {
+    flex-direction: column;
+  }
+}
+
 /*slider ----------------------------------------------*/
 
 .section__slider {
@@ -309,7 +393,7 @@ h1 {
   padding: 55px 0 62px;
 }
 
-.testimonials-block__info {
+.slider-block__info {
   font-size: 16px;
   display: flex;
 }
@@ -323,12 +407,12 @@ h1 {
   margin-bottom: 34px;
 }
 
-.workerh1 {
+.slider__info {
   width: 60%;
   padding: 0 20px 0 90px;
 }
 
-.worker {
+.slider__employee {
   width: 40%;
   padding-left: 20px;
 }
@@ -543,6 +627,28 @@ label, a{ /*при наведении на стрелки или переклю�
   transition: all 2s ease-out;
   width: 110px;
 }
+
+@media (max-width: 1200px) {
+  .backgound__pterosaur {
+    left: -90px;
+  }
+
+  .backgound__triceratops {
+    right: -90px;
+  }
+}
+
+@media (max-width: 920px) {
+  .backgound__pterosaur {
+    left: -180px;
+  }
+
+  .backgound__triceratops {
+    width: 230px;
+    right: -160px;
+    bottom: -10px;
+  }
+}
 /*nav_footer ----------------------------------------------*/
 
 .footer {
@@ -586,6 +692,18 @@ label, a{ /*при наведении на стрелки или переклю�
   text-decoration: underline;
 }
 
+@media (max-width: 920px) {
+  .nav__footer-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .nav__footer-item {
+    align-items: center;
+    text-align: center;
+  }
+}
 /*nav_sub-footer ----------------------------------------------*/
 
 .nav__footer-sub {
@@ -637,6 +755,26 @@ label, a{ /*при наведении на стрелки или переклю�
   text-decoration: none;
 }
 
+@media (max-width: 920px) {
+  .footer--sub__list {
+    flex-direction: column;
+    margin-left: 0;
+    gap: 10px;
+  }
+
+  .nav__footer--sub-item {
+    flex-direction: column;
+  }
+
+  .nav__footer--sub-title {
+    position: static;
+  }
+
+  .item__sub-link::after {
+    display: none;
+  }
+}
+
 /*sub-footer ----------------------------------------------*/
 
 .footer__sub {
@@ -666,4 +804,8 @@ label, a{ /*при наведении на стрелки или переклю�
 
 .footer__logos-link {
   display: inline;
+}
+
+@media (max-width: 1200px) {
+  
 }
