@@ -32,8 +32,8 @@ h1 {
 }
 
 .header__bar {
+  position: relative;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
 }
@@ -82,6 +82,9 @@ h1 {
 }
 
 .nav_link_list {
+  position: absolute;
+  top: 0;
+  right: 0;
   display: flex;
   align-items: center;
   gap: 24px;
@@ -103,7 +106,6 @@ h1 {
   text-align: center;
   font-weight: 600;
   transition: .5s ease-in-out;
-
 }
 
 .nav__sign:hover {
@@ -128,6 +130,12 @@ h1 {
   }
   .nav__sign {
     display:none;
+  }
+  .header__bar {
+    justify-content: space-between;
+  }
+  .nav_link_list {
+    position: static;
   }
 }
 /* header-banner---------------------------------------*/
@@ -174,7 +182,7 @@ h1 {
 .header__banner-video {
   border: 5px solid #fff;
   box-shadow: 0 0 9px 2px rgba(157,157,157,.25);
-  
+  display: flex;
 }
 
 .header__banner-video iframe {
