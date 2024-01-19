@@ -35,4 +35,16 @@ describe('linearUnfold function', () => {
     };
     expect(linearUnfold(callback, 1)).toEqual(['Value: 1', 'Value: 2', 'Value: 3', 'Value: 4']);
   });
+
+  test('should not cause stack overflow', () => {
+    const recursiveCallback = (value) => {
+      if (value < 100000) {
+        return { value: value + 1, state: value + 1 };
+      } else {
+        return { value: null, state: null };
+      }
+    };
+  
+    expect(() => linearUnfold(recursiveCallback, 0)).not.toThrow();
+  });
 });

@@ -37,4 +37,13 @@ describe('filter function', () => {
 
     expect(filter(arr, callback, 2)).toEqual([3, 4, 5]);
   });
+
+  test('should not cause stack overflow', () => {
+    const recursiveCallback = () => {
+      return true;
+    };
+
+    const largeArray = Array.from({ length: 100000 }).fill(0);
+    expect(() => filter(largeArray, recursiveCallback)).not.toThrow();
+  });
 });
