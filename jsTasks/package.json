@@ -2,13 +2,15 @@
   "name": "jstasks",
   "version": "1.0.0",
   "description": "",
-  "main": "AverageOfEvenNumbers.js",
   "scripts": {
     "test": "jest"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
+    "@babel/core": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "babel-jest": "^29.7.0",
     "jest": "^29.7.0"
   }
 }

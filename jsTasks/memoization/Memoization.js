@@ -1,9 +1,9 @@
-function memoization(F) {
+const memoization = (originalFunction) => {
   const cache = new Map();
 
-  return function G(arg) {
+  return (memoized = (arg) => {
     if (!cache.has(arg)) {
-      const result = F(arg);
+      const result = originalFunction(arg);
 
       if (result !== undefined && !Number.isNaN(result)) {
         if (!hasCircularReference(result)) {
@@ -12,12 +12,12 @@ function memoization(F) {
       }
     }
     return cache.get(arg);
-  };
-}
+  });
+};
 
-module.exports = memoization;
+export default memoization;
 
-function hasCircularReference(obj, seen = new WeakSet()) {
+const hasCircularReference = (obj, seen = new WeakSet()) => {
   if (typeof obj !== "object" || obj === null) {
     return false;
   }
@@ -35,4 +35,4 @@ function hasCircularReference(obj, seen = new WeakSet()) {
   }
 
   return false;
-}
+};

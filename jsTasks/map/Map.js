@@ -1,13 +1,13 @@
-function map(arr, callback, index = 0, result = []) {
+const map = (arr, callback, index = 0, result = []) => {
   if (index === arr.length) {
     return result;
   }
 
   result.push(callback(arr[index], index, arr));
   return map(arr, callback, index + 1, result);
-}
+};
 
-module.exports = map;
+export default map;
 
 //Alternative
 const array = [1, 2, 3, 4, 5];

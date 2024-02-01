@@ -1,4 +1,4 @@
-function firstElement(array, condition, index = 0) {
+const firstElement = (array, condition, index = 0) => {
   if (index === array.length) {
     return undefined;
   }
@@ -8,6 +8,6 @@ function firstElement(array, condition, index = 0) {
   }
 
   return firstElement(array, condition, index + 1);
-}
+};
 
-module.exports = firstElement;
+export default firstElement;

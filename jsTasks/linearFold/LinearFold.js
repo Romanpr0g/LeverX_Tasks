@@ -1,4 +1,4 @@
-function linearFold(array, callback, initialValue, index = 0) {
+const linearFold = (array, callback, initialValue, index = 0) => {
   if (index === array.length) {
     return initialValue !== undefined ? initialValue : array[0];
   }
@@ -12,9 +12,9 @@ function linearFold(array, callback, initialValue, index = 0) {
   );
 
   return linearFold(array, callback, newAccumulator, index + 1);
-}
+};
 
-module.exports = linearFold;
+export default linearFold;
 
 //Alternative
 

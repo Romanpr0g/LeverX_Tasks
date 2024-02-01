@@ -1,8 +1,11 @@
-const filter = require('../filter/Filter.js');
-const linearFold = require('../linearFold/LinearFold.js');
+import linearFold from "../linearFold/linearFold.js";
+import filter from "../filter/filter.js";
 
-const numbers4 = [1, 2, 3, 4, 5];
-const evens = filter(numbers4, (num) => num % 2 === 0);
-const sum1 = linearFold(evens, (prev, current) => prev + current, 0);
-const average = sum1 / evens.length;
-console.log(average);
+const averageOfEvenNumbers = (arr) => {
+  const evens = filter(arr, (num) => num % 2 === 0);
+  const sum1 = linearFold(evens, (prev, current) => prev + current, 0);
+  const average = sum1 / evens.length;
+  return average;
+};
+
+export default averageOfEvenNumbers;

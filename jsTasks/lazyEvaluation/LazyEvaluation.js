@@ -1,7 +1,7 @@
-function lazyEvaluation(fn, ...args) {
-  return function () {
-    return fn(...args);
+const lazyEvaluation = (func, ...args) => {
+  return () => {
+    return func(...args);
   };
-}
+};
 
-module.exports = lazyEvaluation;
+export default lazyEvaluation;

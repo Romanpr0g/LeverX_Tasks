@@ -1,11 +1,10 @@
-function partialApplication(G, ...argsF) {
-  return function H(...argsH) {
-    return G(...argsF, ...argsH);
-  };
-}
-module.exports = partialApplication;
+const partialApplication =
+  (originalFunction, ...argsF) =>
+  (...argsH) =>
+    originalFunction(...argsF, ...argsH);
+export default partialApplication;
 
 // Alternative
-const G = (x, y, z) => x + y + z;
-const H = G.bind(null, 1);
-const result = H(2, 3);
+const originalFunction = (x, y, z) => x + y + z;
+const partiallyApplied = originalFunction.bind(null, 1);
+const result = partiallyApplied(2, 3);
