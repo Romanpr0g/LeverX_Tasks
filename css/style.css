@@ -274,16 +274,7 @@ h1 {
 .trusted-brands__wrapper {
   position: relative;
   padding-bottom: 112px;
-}
-
-.trusted-brands__wrapper:before {
-  position: absolute;
-  content: "";
-  bottom: 0;
-  height: 1px;
-  background: #d2d2d2;
-  width: 100%;
-  left: 0;
+  border-bottom: 1px solid #d2d2d2;
 }
 
 .brands__title {
@@ -291,6 +282,8 @@ h1 {
   text-align: center;
   margin-bottom: 22px;
   font-size: 32px;
+  font-weight: 400;
+  color: #3a3a3a;
 }
 
 .brands__image {
@@ -590,7 +583,6 @@ h1 {
   width: 100%;
   max-width: 1232px;
   margin: auto;
-  padding: 56px 16px;
 }
 
 .backgound__pterosaur {

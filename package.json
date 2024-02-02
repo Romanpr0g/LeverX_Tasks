@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "normalize.css": "^8.0.1"
-  },
-  "devDependencies": {
-    "jest": "^29.7.0"
-  }
-}
