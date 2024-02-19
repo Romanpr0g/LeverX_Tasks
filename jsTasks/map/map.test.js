@@ -24,17 +24,11 @@ describe("map function", () => {
 
   test("should not modify the original array", () => {
     const arr = [1, 2, 3, 4, 5];
+    const originalArray = [...arr];
     const callback = (value) => value * 2;
 
     map(arr, callback);
 
-    expect(arr).toEqual([1, 2, 3, 4, 5]);
-  });
-
-  test("should work correctly with a custom starting index", () => {
-    const arr = [1, 2, 3, 4, 5];
-    const callback = (value) => value * 2;
-
-    expect(map(arr, callback, 2)).toEqual([6, 8, 10]);
+    expect(arr).toStrictEqual(originalArray);
   });
 });

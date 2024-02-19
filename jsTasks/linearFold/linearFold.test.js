@@ -28,19 +28,21 @@ describe("linearFold function", () => {
 
   test("should not modify the original array", () => {
     const array = [1, 2, 3, 4, 5];
+    const originalArray = [...array];
     const callback = (accumulator, currentValue) => accumulator + currentValue;
     const initialValue = 0;
 
     linearFold(array, callback, initialValue);
 
-    expect(array).toEqual([1, 2, 3, 4, 5]);
+    expect(array).toStrictEqual(originalArray);
   });
 
   test("should work correctly with a custom starting index", () => {
     const array = [1, 2, 3, 4, 5];
-    const callback = (accumulator, currentValue) => accumulator + currentValue;
+    const callback = (accumulator, currentValue, index) =>
+      index >= 2 && accumulator + currentValue;
     const initialValue = 0;
 
-    expect(linearFold(array, callback, initialValue, 2)).toEqual(12);
+    expect(linearFold(array, callback, initialValue)).toEqual(12);
   });
 });

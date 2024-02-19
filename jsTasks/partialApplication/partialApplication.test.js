@@ -1,7 +1,7 @@
 import partialApplication from "./partialApplication";
 
 describe("partialApplication function", () => {
-  test("should returns a function", () => {
+  test("should return a function", () => {
     const result = partialApplication(() => {});
     expect(typeof result).toEqual("function");
   });

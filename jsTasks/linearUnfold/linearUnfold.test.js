@@ -1,9 +1,10 @@
-import linearUnfold from "./linearUnfold";
+import { linearUnfoldCallStack, linearUnfold } from "./linearUnfold";
 
 describe("linearUnfold function", () => {
   test("returns an empty array if callback returns falsy value", () => {
     const callback = () => ({ value: undefined, state: undefined });
     expect(linearUnfold(callback, 0)).toEqual([]);
+    expect(linearUnfoldCallStack(callback, 0)).toEqual([]);
   });
 
   test("should returns an empty array if function not take a currentValue", () => {
@@ -13,6 +14,7 @@ describe("linearUnfold function", () => {
       return { value: nextElement, state: nextState };
     };
     expect(linearUnfold(callback)).toEqual([]);
+    expect(linearUnfoldCallStack(callback)).toEqual([]);
   });
 
   test("should unfolds array based on callback", () => {
@@ -22,6 +24,7 @@ describe("linearUnfold function", () => {
       return { value: nextElement, state: nextState };
     };
     expect(linearUnfold(callback, 1)).toEqual([2, 4, 6, 8, 10]);
+    expect(linearUnfoldCallStack(callback, 1)).toEqual([2, 4, 6, 8, 10]);
   });
 
   test("should handles different types of values in callback", () => {
@@ -40,6 +43,12 @@ describe("linearUnfold function", () => {
       "Value: 3",
       "Value: 4",
     ]);
+    expect(linearUnfoldCallStack(callback, 1)).toEqual([
+      "Value: 1",
+      "Value: 2",
+      "Value: 3",
+      "Value: 4",
+    ]);
   });
 
   test("should not cause stack overflow", () => {
@@ -51,6 +60,6 @@ describe("linearUnfold function", () => {
       }
     };
 
-    expect(() => linearUnfold(recursiveCallback, 0)).not.toThrow();
+    expect(() => linearUnfoldCallStack(recursiveCallback, 0)).not.toThrow();
   });
 });

@@ -1,6 +1,10 @@
 const lazyEvaluation = (func, ...args) => {
+  let result;
   return () => {
-    return func(...args);
+    if (!result) {
+      result = func(...args);
+    }
+    return result;
   };
 };
 

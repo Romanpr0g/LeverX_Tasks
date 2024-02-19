@@ -7,10 +7,14 @@ describe("lazyEvaluation function", () => {
   });
 
   test("should invokes the function lazily", () => {
-    const add = (a, b) => a + b;
+    const add = jest.fn((a, b) => a + b);
     const lazyAdd = lazyEvaluation(add, 2, 3);
+    expect(add).not.toHaveBeenCalled();
 
-    expect(lazyAdd()).toEqual(5);
+    const result = lazyAdd();
+    expect(result).toEqual(5);
+    expect(add).toHaveBeenCalledTimes(1);
+    expect(add).toHaveBeenCalledWith(2, 3);
   });
 
   test("should works with different types of functions", () => {

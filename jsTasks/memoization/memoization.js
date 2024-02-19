@@ -6,7 +6,7 @@ const memoization = (originalFunction) => {
       const result = originalFunction(arg);
 
       if (result !== undefined && !Number.isNaN(result)) {
-        if (!hasCircularReference(result)) {
+        if (!isCyclic(result)) {
           cache.set(arg, result);
         }
       }
@@ -15,24 +15,25 @@ const memoization = (originalFunction) => {
   });
 };
 
-export default memoization;
+const isCyclic = (obj) => {
+  const seenObjects = [];
 
-const hasCircularReference = (obj, seen = new WeakSet()) => {
-  if (typeof obj !== "object" || obj === null) {
-    return false;
-  }
-
-  if (seen.has(obj)) {
-    return true;
-  }
-
-  seen.add(obj);
-
-  for (const key in obj) {
-    if (hasCircularReference(obj[key], seen)) {
-      return true;
+  const detect = (obj) => {
+    if (obj && typeof obj === "object") {
+      if (seenObjects.indexOf(obj) !== -1) {
+        return true;
+      }
+      seenObjects.push(obj);
+      for (const key in obj) {
+        if (obj.hasOwnProperty(key) && detect(obj[key])) {
+          return true;
+        }
+      }
     }
-  }
+    return false;
+  };
 
-  return false;
+  return detect(obj);
 };
+
+export default memoization;

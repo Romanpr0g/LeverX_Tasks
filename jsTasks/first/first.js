@@ -1,4 +1,9 @@
-const firstElement = (array, condition, index = 0) => {
+const firstElement = (array, condition) => {
+  const index = 0;
+  return firstElementRecursive(array, condition, index);
+};
+
+const firstElementRecursive = (array, condition, index) => {
   if (index === array.length) {
     return undefined;
   }
@@ -7,7 +12,7 @@ const firstElement = (array, condition, index = 0) => {
     return array[index];
   }
 
-  return firstElement(array, condition, index + 1);
+  return firstElementRecursive(array, condition, index + 1);
 };
 
 export default firstElement;

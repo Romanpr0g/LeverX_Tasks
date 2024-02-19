@@ -1,10 +1,16 @@
-const map = (arr, callback, index = 0, result = []) => {
+const map = (arr, callback) => {
+  const result = [];
+  const index = 0;
+  return mapRecursive(arr, callback, index, result);
+};
+
+const mapRecursive = (arr, callback, index, result) => {
   if (index === arr.length) {
     return result;
   }
 
   result.push(callback(arr[index], index, arr));
-  return map(arr, callback, index + 1, result);
+  return mapRecursive(arr, callback, index + 1, result);
 };
 
 export default map;
